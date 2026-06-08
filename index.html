@@ -3,316 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise Therapist & Women's Wellness Coach</title>
+    <title>Fitna Club | Exercise Therapy & Women's Wellness</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-
         :root {
-            --primary-color: #2E5A88; 
-            --accent-color: #E26D5C;  
-            --text-dark: #2B2D42;     
-            --bg-light: #F8F9FA;     
-            --white: #FFFFFF;
+            --primary-color: #2E5A88;
+            --accent-color: #E26D5C;
+            --text-dark: #2B2D42;
+            --bg-light: #F9F9F9;
         }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
         }
-
-        .container {
-            padding: 20px;
-            max-width: 600px; 
+        header h1 {
+            font-size: 28px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 600px;
             margin: 0 auto;
         }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--white);
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            text-align: center;
-            font-size: 1.1rem;
-            width: 100%; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header {
-            background-color: var(--white);
-            border-bottom: 1px solid #E5E5E5;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.2rem;
+        .section-title {
             color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .nav-btn {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 8px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #EEF4F8 0%, #DFE9F3 100%);
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        .hero h1 {
-            font-size: 2.2rem;
-            color: var(--primary-color);
+            font-size: 24px;
             margin-bottom: 15px;
-            line-height: 1.2;
+            text-align: center;
         }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: #4A4A4A;
+        .bio-text {
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             margin-bottom: 30px;
+            border: 1px solid #EEEEEE;
         }
-
-        section {
-            padding: 40px 0;
+        .cert-list {
+            list-style: none;
         }
-
-        h2 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
+        .cert-list li {
+            color: var(--text-dark);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .cert-list li::before {
+            content: "✓";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .specialty-item {
             margin-bottom: 20px;
         }
-
-        .about-card {
-            background-color: var(--white);
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        .specialty-item strong {
+            color: var(--accent-color);
+            font-size: 16px;
+            display: block;
+            margin-bottom: 5px;
         }
-
-        .badge-list {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .specialty-item p {
+            color: var(--text-dark);
+            font-size: 15px;
+            line-height: 1.5;
         }
-
-        .badge {
-            background-color: #EBF1F6;
-            color: var(--primary-color);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .service-list {
+        form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
-
-        .service-card {
-            background-color: var(--white);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 5px solid var(--primary-color);
+        label {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 14px;
         }
-
-        .service-card h3 {
-            margin-bottom: 8px;
-            color: var(--primary-color);
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #CCC;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: white;
+            -webkit-appearance: none;
         }
-
-        .testimonial {
-            background-color: #FAFAFA;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border: 1px solid #EAEAEA;
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
         }
-
-        .testimonial-author {
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 18px;
             font-weight: bold;
-            display: block;
+            cursor: pointer;
             margin-top: 10px;
-            color: var(--primary-color);
+            box-shadow: 0 4px 6px rgba(226, 109, 92, 0.2);
         }
-
+        button:active {
+            transform: scale(0.98);
+        }
         footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 40px 20px;
+            text-align: center;
+            padding: 30px 20px;
+            color: #777;
+            font-size: 13px;
+            background-color: #F1F1F1;
             margin-top: 40px;
         }
-
-        .mobile-form {
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 16px;
-            text-align: left;
-            color: var(--text-dark);
-            width: 100%;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--primary-color);
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1.5px solid #D1D5DB;
-            border-radius: 10px;
-            font-size: 1rem;
-            background-color: #F9FAFB;
-        }
-
-        .form-submit-btn {
-            background-color: var(--accent-color);
-            color: var(--white);
-            border: none;
-            padding: 16px;
-            width: 100%;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-        }
-
-        .form-alert {
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .status-success { background-color: #D1E7DD; color: #0F5132; }
-        .status-error { background-color: #F8D7DA; color: #842029; }
-        button[disabled] { background-color: #A0AEC0 !important; opacity: 0.7; }
     </style>
 </head>
 <body>
 
+    <!-- HEADER -->
     <header>
-        <div class="nav-container">
-            <a href="#" class="logo">FITNA CLUB</a>
-            <a href="#contact" class="nav-btn">Book Consultation</a>
-        </div>
+        <h1>FITNA CLUB</h1>
+        <p>Evidence-Based Exercise Therapy & Women's Wellness</p>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Scientific & Safe Movement for Lifelong Health</h1>
-            <p>Evidence-based personal training, biomechanical movement quality, and posture correction designed for your unique body.</p>
-            <a href="#contact" class="btn">Start Your Transformation</a>
+    <!-- ABOUT ME SECTION -->
+    <section>
+        <h2 class="section-title">About Me</h2>
+        <p class="bio-text">
+            My professional journey in fitness and health began at 18 years old as a sports instructor in schools. Over time, I expanded my expertise to teach movement at the university level. Driven by a deep commitment to high-quality biomechanics and safe movement quality, I transitioned into working as a certified personal trainer and ultimately specialized as an Exercise Therapist. Today, I combine evidence-based training methods and personalized care to help women restore their core strength, move entirely without pain, and thrive physically through every major lifecycle change.
+        </p>
+
+        <h3 style="color: var(--primary-color); font-size: 18px; margin-bottom: 12px; text-align: center;">Professional Credentials & Memberships</h3>
+        <div class="card">
+            <ul class="cert-list">
+                <li>Canfitpro Certified Personal Trainer</li>
+                <li>Certified Exercise Therapist</li>
+                <li>Active Aging & Senior Fitness Specialist</li>
+                <li>Pre-Natal & Post-Natal (Pregnancy) Exercise Specialist</li>
+                <li>Advanced Resistance Training & Weight Loss Specialist</li>
+                <li>Professional Member of the Exercise Therapist Association (United States)</li>
+                <li>Professional Member of Canadian Fitness Professionals (Canada)</li>
+            </ul>
         </div>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>Your Coach</h2>
-            <div class="about-card">
-                <p>Hello! I am an <strong>Exercise Therapist and Women's Wellness Coach</strong> dedicated to helping you build a resilient, strong body. My approach merges rigorous analysis with high-quality movement tracking to ensure every exercise you perform is safe, intentional, and highly effective.</p>
-                <div class="badge-list">
-                    <span class="badge">canfitpro CPT</span>
-                    <span class="badge">Exercise Therapist</span>
-                    <span class="badge">Biomechanics Focused</span>
-                    <span class="badge">Engineering Background</span>
+    <!-- WHO I HELP SECTION -->
+    <section style="background-color: var(--bg-light); max-width: 100%;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <h2 class="section-title">How I Support Your Journey</h2>
+            <p class="bio-text" style="text-align: center; margin-bottom: 25px;">
+                Your body experiences unique biological shifts and hormonal stages throughout life. No matter where you stand today, I am with you with customized, strategic physical support.
+            </p>
+
+            <div class="card">
+                <div class="specialty-item">
+                    <strong>• Hormonal Transitions & Metabolic Health</strong>
+                    <p>Whether you are navigating perimenopause, menopause, or post-menopause, I build target programs focused on shifting body composition, rebuilding bone density, and safely managing stubborn abdominal belly fat.</p>
+                </div>
+
+                <div class="specialty-item">
+                    <strong>• Weight Loss Injection Support</strong>
+                    <p>If you are using weight loss injections, I structure highly protective resistance training plans and personalized high-protein nutrition tips to ensure you preserve essential lean muscle tissues while losing fat safely.</p>
+                </div>
+
+                <div class="specialty-item">
+                    <strong>• Injury Recovery & Movement Limitations</strong>
+                    <p>If you are living with physical limitations or returning from an injury, I design precise, biomechanically correct movement protocols to completely remove joint pain, correct posture, and return functional strength to your daily life.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services">
-        <div class="container">
-            <h2>Training Programs</h2>
-            <div class="service-list">
-                <div class="service-card">
-                    <h3>1-on-1 Exercise Therapy</h3>
-                    <p>Customized rehabilitation and functional patterns designed to address posture, muscle imbalances, and joint health.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Women's Wellness Coaching</h3>
-                    <p>Holistic training plans integrating metabolic health strategies and scientific nutrition advice tailored for your daily routine.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- CONSULTATION FORM SECTION -->
+    <section>
+        <h2 class="section-title">Book Your Consultation</h2>
+        <p style="text-align: center; color: var(--text-dark); margin-bottom: 25px; font-size: 15px;">
+            Take the first step toward safe, effective movement. Fill out the form below to register your client details.
+        </p>
 
-    <footer id="contact">
-        <div class="container">
-            <h2 style="color: white;">Let's Get Started</h2>
-            <p style="color: #E2EAF4; margin-bottom: 25px;">Fill out this quick intake form to book your initial consultation.</p>
+        <!-- Form submissions will go straight to your email using Formspree -->
+        <form action="https://formspree.io/f/xoqgkeov" method="POST" class="card">
             
-            <div data-fs-success class="form-alert status-success" style="display: none;">
-                <h3>Thank You!</h3>
-                <p>Your request has been submitted. I will review your goals and get back to you shortly.</p>
-            </div>
-            <div data-fs-error class="form-alert status-error" style="display: none;">
-                <h3>Error</h3>
-                <p>Something went wrong. Please try again.</p>
+            <div>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
             </div>
 
-            <form id="fitna-intake-form" class="mobile-form">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="name" required placeholder="Your name" data-fs-field>
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" required placeholder="name@example.com" data-fs-field>
-                </div>
-                <div class="form-group">
-                    <label>What is your main fitness goal?</label>
-                    <select name="goal" required data-fs-field>
-                        <option value="" disabled selected>Select an option</option>
-                        <option value="Posture">Posture & Biomechanics</option>
-                        <option value="Therapy">Exercise Therapy / Recovery</option>
-                        <option value="Wellness">Women's Wellness Coaching</option>
-                    </select>
-                </div>
-                <button type="submit" data-fs-submit-btn class="form-submit-btn">Submit Request</button>
-            </form>
+            <div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Your email address">
+            </div>
 
-            <p style="margin-top: 40px; font-size: 0.85rem; opacity: 0.8;">&copy; 2026 Fitna Club. All Rights Reserved.</p>
-        </div>
+            <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
+            </div>
+
+            <div>
+                <label for="goal">Your Primary Focus Area</label>
+                <select id="goal" name="goal" required>
+                    <option value="" disabled selected>Select an option...</option>
+                    <option value="Perimenopause / Menopause Support">Perimenopause / Menopause Support</option>
+                    <option value="Weight Loss Injection Muscle Support">Weight Loss Injection Support & Nutrition</option>
+                    <option value="Injury Recovery / Pain-Free Movement">Injury Recovery & Posture Correction</option>
+                    <option value="Pre-Natal / Post-Natal Fitness">Pre-Natal & Post-Natal Fitness</option>
+                    <li>Active Aging & Mobility</li>
+                </select>
+            </div>
+
+            <div>
+                <label for="message">Share your fitness history or limitations (Optional)</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell me briefly about your targets or any physical discomfort..."></textarea>
+            </div>
+
+            <button type="submit">Submit Request</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Fitna Club. All Rights Reserved.</p>
+        <p style="font-size: 11px; margin-top: 5px; opacity: 0.7;">Safe, scientific movement systems for lasting vitality.</p>
     </footer>
-
-    <script>
-      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-      formspree('initForm', { formElement: '#fitna-intake-form', formId: 'xlgkbkre' });
-    </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
