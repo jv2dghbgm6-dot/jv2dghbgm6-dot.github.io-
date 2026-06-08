@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Therapist & Women's Wellness Coach</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2E5A88; 
+            --accent-color: #E26D5C;  
+            --text-dark: #2B2D42;     
+            --bg-light: #F8F9FA;     
+            --white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 600px; 
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.1rem;
+            width: 100%; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid #E5E5E5;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #EEF4F8 0%, #DFE9F3 100%);
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #4A4A4A;
+            margin-bottom: 30px;
+        }
+
+        section {
+            padding: 40px 0;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-card {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .badge-list {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            background-color: #EBF1F6;
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .service-card h3 {
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .testimonial {
+            background-color: #FAFAFA;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #EAEAEA;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .mobile-form {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: left;
+            color: var(--text-dark);
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1.5px solid #D1D5DB;
+            border-radius: 10px;
+            font-size: 1rem;
+            background-color: #F9FAFB;
+        }
+
+        .form-submit-btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .form-alert {
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .status-success { background-color: #D1E7DD; color: #0F5132; }
+        .status-error { background-color: #F8D7DA; color: #842029; }
+        button[disabled] { background-color: #A0AEC0 !important; opacity: 0.7; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">FITNA CLUB</a>
+            <a href="#contact" class="nav-btn">Book Consultation</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Scientific & Safe Movement for Lifelong Health</h1>
+            <p>Evidence-based personal training, biomechanical movement quality, and posture correction designed for your unique body.</p>
+            <a href="#contact" class="btn">Start Your Transformation</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>Your Coach</h2>
+            <div class="about-card">
+                <p>Hello! I am an <strong>Exercise Therapist and Women's Wellness Coach</strong> dedicated to helping you build a resilient, strong body. My approach merges rigorous analysis with high-quality movement tracking to ensure every exercise you perform is safe, intentional, and highly effective.</p>
+                <div class="badge-list">
+                    <span class="badge">canfitpro CPT</span>
+                    <span class="badge">Exercise Therapist</span>
+                    <span class="badge">Biomechanics Focused</span>
+                    <span class="badge">Engineering Background</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Training Programs</h2>
+            <div class="service-list">
+                <div class="service-card">
+                    <h3>1-on-1 Exercise Therapy</h3>
+                    <p>Customized rehabilitation and functional patterns designed to address posture, muscle imbalances, and joint health.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Women's Wellness Coaching</h3>
+                    <p>Holistic training plans integrating metabolic health strategies and scientific nutrition advice tailored for your daily routine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h2 style="color: white;">Let's Get Started</h2>
+            <p style="color: #E2EAF4; margin-bottom: 25px;">Fill out this quick intake form to book your initial consultation.</p>
+            
+            <div data-fs-success class="form-alert status-success" style="display: none;">
+                <h3>Thank You!</h3>
+                <p>Your request has been submitted. I will review your goals and get back to you shortly.</p>
+            </div>
+            <div data-fs-error class="form-alert status-error" style="display: none;">
+                <h3>Error</h3>
+                <p>Something went wrong. Please try again.</p>
+            </div>
+
+            <form id="fitna-intake-form" class="mobile-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required placeholder="Your name" data-fs-field>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" required placeholder="name@example.com" data-fs-field>
+                </div>
+                <div class="form-group">
+                    <label>What is your main fitness goal?</label>
+                    <select name="goal" required data-fs-field>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Posture">Posture & Biomechanics</option>
+                        <option value="Therapy">Exercise Therapy / Recovery</option>
+                        <option value="Wellness">Women's Wellness Coaching</option>
+                    </select>
+                </div>
+                <button type="submit" data-fs-submit-btn class="form-submit-btn">Submit Request</button>
+            </form>
+
+            <p style="margin-top: 40px; font-size: 0.85rem; opacity: 0.8;">&copy; 2026 Fitna Club. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { formElement: '#fitna-intake-form', formId: 'xlgkbkre' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+</body>
+</html>
